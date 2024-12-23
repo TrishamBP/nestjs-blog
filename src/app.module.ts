@@ -8,6 +8,8 @@ import { User } from './users/user.entity';
 import { TagsModule } from './tags/tags.module';
 import { Post } from './posts/post.entity';
 import { MetaOptionsModule } from './meta-options/meta-options.module';
+import { Tag } from './tags/tag.entity';
+import { MetaOption } from './meta-options/meta-option.entity';
 
 @Module({
   imports: [
@@ -18,7 +20,8 @@ import { MetaOptionsModule } from './meta-options/meta-options.module';
       inject: [],
       useFactory: () => ({
         type: 'postgres',
-        entities: [User, Post],
+        // entities: [User, Post, Tag, MetaOption],
+        autoLoadEntities: true,
         synchronize: true,
         username: 'postgres',
         password: 'Prats@1978',
